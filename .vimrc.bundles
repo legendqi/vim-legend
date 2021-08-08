@@ -1,0 +1,277 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""" bundle 插件管理和配置项""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"package dependence:  ctags
+"python dependence:   pep8, pyflake
+
+"非兼容vi模式。去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle
+"set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+"使用Vundle来管理Vundle
+Bundle 'gmarik/vundle'
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+
+"使用 Git 的插件
+Plugin 'tpope/vim-fugitive'
+
+Plugin 'L9'
+
+" Git plugin not hosted on GitHub
+" 快速导航文件，以用于后续的编辑处理。
+Plugin 'git://git.wincent.com/command-t.git'
+
+"有了sparkup, 写HTML可以达到神速.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+" Avoid a name conflict with L9
+"Plugin 'user/L9', {'name': 'newL9'}
+
+""""""""""""""yistn add"""""""""""""
+"自动补全插件
+Plugin 'Valloric/YouCompleteMe'
+"Plugin 'ycm-core/YouCompleteMe'
+"go语言插件
+Plugin 'fatih/vim-go'
+
+"模糊搜索插件
+Plugin 'mileszs/ack.vim'
+
+"列出函数和类的插件
+Plugin 'majutsushi/tagbar' " taglist
+
+"语法检查插件
+Plugin 'scrooloose/syntastic'
+
+"状态栏增强插件
+Plugin 'bling/vim-airline'
+
+"Text 中的代码块 (Snippets)
+"缩减了码字的过程，极大的提高编程效率，是非常方便的工具
+Plugin 'SirVer/ultisnips'
+
+"matchit.vim插件扩展了%匹配字符的范围，并且根据不同的filetype来做不同的匹配。
+Plugin 'edsono/vim-matchit'
+
+"提供json的语法高亮
+Plugin 'elzr/vim-json'
+
+"Vim下代码块的自动补全支持的很好。给大家推荐snipMate。
+"Plugin 'garbas/vim-snipmate' " vim-snimate
+"Plugin 'honza/vim-snippets'
+
+"来快速定位文件的插件
+Plugin 'kien/ctrlp.vim'
+
+"vim编辑markdown时实现预览
+Plugin 'plasticboy/vim-markdown'
+
+"Vim代码注释插件
+Plugin 'scrooloose/nerdcommenter'
+
+"vim-surround是一个处理成对出现的“包围结构”的插件
+Plugin 'tpope/vim-surround'
+
+"A few of quick commands to swtich between source files and header files
+"quickly.
+Plugin 'vim-scripts/a.vim'
+
+"VIM下如何使用SVN插件
+Plugin 'vim-scripts/vcscommand.vim'
+
+"多文件编辑的插件
+Plugin 'fholgado/minibufexpl.vim'
+
+"Color schemes
+Plugin 'tomasr/molokai'
+Plugin 'flazz/vim-colorschemes'
+
+" vim 树形目录插件
+Plugin 'scrooloose/nerdtree'
+Plugin 'ivalkeen/nerdtree-execute'
+
+Plugin 'vim-scripts/gtags.vim'
+Plugin 'craigemery/vim-autotag'
+"Plugin 'vim-scripts/vgdb'
+
+"在 Vim 中对齐文本
+"Plugin 'godlygeek/tabular' " algin cols
+"Plugin 'wincent/command-t'
+"Plugin 'brookhong/cscope.vim'
+
+"Plugin 'sji/gundo.vim'
+"Plugin 'mattn/emmet-vim'
+"Plugin 'kien/ctrlp.vim'
+"Plugin 'scrooloose/nerdcommenter' " commnet code
+"Plugin 'vim-scripts/bufexplorer.zip'
+"Plugin 'vim-scripts/winmanager'
+"Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-sleuth'
+"Plugin 'tpope/vim-repeat'
+"Plugin 'tpope/vim-surround'
+"Plugin 'wesleyche/SrcExpl'
+""""""""""""""yistn add end"""""""""
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""自动补全"""""""""""""""""""""""""""""""""""""""""""""""""" 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" 代码自动补全
+""迄今为止用到的最好的自动VIM自动补全插件
+""重启 :YcmRestartServer
+"Bundle 'Valloric/YouCompleteMe'
+""youcompleteme  默认tab  s-tab 和自动补全冲突
+""let g:ycm_key_list_select_completion=['<c-n>']
+"let g:ycm_key_list_select_completion = ['<Down>']
+""let g:ycm_key_list_previous_completion=['<c-p>']
+"let g:ycm_key_list_previous_completion = ['<Up>']
+let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
+let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
+"let g:ycm_use_ultisnips_completer = 1 "提示UltiSnips
+"let g:ycm_cache_omnifunc = 0        " 禁止缓存匹配项,每次都重新生成匹配项
+"let g:ycm_collect_identifiers_from_comments_and_strings = 0   "注释和字符串中的文字也会被收入补全
+"let g:ycm_seed_identifiers_with_syntax = 0   "语言关键字补全, 不过python关键字都很短，所以，需要的自己打开
+""let g:ycm_collect_identifiers_from_tags_files = 1 "会导致一直更新标签，python2 占用内存80%以上
+"" 引入，可以补全系统，以及python的第三方包 针对新老版本YCM做了兼容
+
+"自己下载YouCompleteMe时使用这两个参数
+" old version
+"if !empty(glob("~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py"))
+"    let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py"
+"endif
+
+" new version
+"let g:ycm_server_keep_logfile = 1
+"if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
+"    let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+"endif
+
+let g:ycm_cache_omnifunc = 1
+let g:ycm_use_ultisnips_completer = 1
+
+"
+"" 直接触发自动补全
+""let g:ycm_key_invoke_completion = '<C-Space>'
+"" 跳转到定义处, 分屏打开
+"let g:ycm_goto_buffer_command = 'horizontal-split'
+"" nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+"nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+"
+"" 黑名单,不启用
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'gitcommit' : 1,
+      \}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""标签导航"""""""""""""""""""""""""""""""""""""""""""""""""" 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""标签导航
+"Bundle 'majutsushi/tagbar'
+""nmap <F9> :TagbarToggle<CR>
+"let g:tagbar_autofocus = 1
+let g:tagbar_left = 1
+"let g:tagbar_expand = 1
+"let g:tagbar_compact = 1
+"let g:tagbar_singleclick = 1
+"let g:tagbar_autoshowtag = 1
+"let g:tagbar_ctags_bin = 'ctags'
+"let g:tagbar_width = 30
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""基础"""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 多语言语法检查
+"Bundle 'scrooloose/syntastic'
+let g:syntastic_error_symbol = '✗'      "set error or warning signs
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_highlighting = 0
+let g:syntastic_python_checkers=['pyflakes'] " 使用pyflakes,速度比pylint快
+let g:syntastic_javascript_checkers = ['jsl', 'jshint']
+let g:syntastic_html_checkers=['tidy', 'jshint']
+let g:syntastic_cpp_include_dirs = ['/usr/include/']
+let g:syntastic_cpp_remove_include_errors = 1
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
+let g:syntastic_enable_balloons = 1 "whether to show balloons
+highlight SyntasticErrorSign guifg=white guibg=black
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""功能相关""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" 文件搜索
+"" change to https://github.com/ctrlpvim/ctrlp.vim
+"Bundle 'ctrlpvim/ctrlp.vim'
+"let g:ctrlp_map = '<leader>p'
+"let g:ctrlp_cmd = 'CtrlP'
+"map <leader>f :CtrlPMRU<CR>
+""set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux"
+"let g:ctrlp_custom_ignore = {
+"    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
+"    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
+"    \ }
+""\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+"let g:ctrlp_working_path_mode=0
+"let g:ctrlp_match_window_bottom=1
+"let g:ctrlp_max_height=15
+"let g:ctrlp_match_window_reversed=0
+"let g:ctrlp_mruf_max=500
+"let g:ctrlp_follow_symlinks=1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""快速导航"""""""""""""""""""""""""""""""""""""""""""""" 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""目录导航
+"Bundle 'scrooloose/nerdtree'
+map <leader>n :NERDTreeToggle<CR>
+let NERDTreeHighlightCursorline=1
+let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
+"let NERDTreeDirArrows=0
+"let g:netrw_home='~/bak'
+"close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
+" s/v 分屏打开文件
+let g:NERDTreeMapOpenSplit = 's'
+let g:NERDTreeMapOpenVSplit = 'v'
+"
+"
+"Bundle 'fholgado/minibufexpl.vim'
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+"解决FileExplorer窗口变小问题
+let g:miniBufExplForceSyntaxEnable = 1
+let g:miniBufExplorerMoreThanOne=2
+let g:miniBufExplCycleArround=1
