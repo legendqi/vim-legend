@@ -2,7 +2,7 @@
 
 Vim plugin and configuration out of the box
 
-对应gitee地址是:
+gitee: https://gitee.com/legendqi/vim-legend
 
 ## Install
 
@@ -60,4 +60,4 @@ At the same time, you can also use the split screen switching shortcut key to sw
 
 :e filepath open file
 
-If you have any questions or suggestions for improvement, please contact me 163 email
+If you have any questions or suggestions for improvement, please contact me qq email
