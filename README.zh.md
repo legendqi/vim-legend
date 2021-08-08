@@ -52,7 +52,7 @@ ctrl+]: 在生产tag后, 可以跳转到方法定义的地方
 
 :b 2   各个title之间切换
 
-![image-20210808182119757](/home/legend/.config/Typora/typora-user-images/image-20210808182119757.png)
+![avatar](./images/image-20210808182119757.png)
 
 命令:b2,可以将窗口切换到98_copy_file.job中
 

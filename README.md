@@ -52,7 +52,7 @@ ctrl+]: After the tag is produced, you can jump to the place where the method is
 
 :b number:   Switch between titles
 
-![image-20210808182119757](/home/legend/.config/Typora/typora-user-images/image-20210808182119757.png)
+![](/home/legend/WorkSpace/github/vim-legend/images/image-20210808182119757.png)
 
 Command: b2, you can switch the window to 98_copy_file.job
 
